@@ -1,3 +1,4 @@
+import Embed from './Embed.jsx';
 import HeroImage from './HeroImage.jsx';
 import InlineImage from './InlineImage.jsx';
 import SplitRow from './SplitRow.jsx';
@@ -107,6 +108,24 @@ const COMPONENT_PARSERS = {
         body,
         alt,
         caption,
+      },
+    };
+  },
+  embed: (cells, context) => {
+    const [url = '', height = '', title = ''] = cells;
+    const embedUrl = url?.toString().trim();
+
+    if (!embedUrl) {
+      return null;
+    }
+
+    return {
+      key: `embed-${context.index}`,
+      Component: Embed,
+      props: {
+        url: embedUrl,
+        height: height?.toString().trim() || '',
+        title: title?.toString().trim() || '',
       },
     };
   },

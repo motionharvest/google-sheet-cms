@@ -250,7 +250,8 @@ a {
 
 [data-theme='dark'] .menu-label,
 [data-theme='dark'] .close-menu,
-[data-theme='dark'] .toc-link {
+[data-theme='dark'] .toc-link,
+[data-theme='dark'] .nav-title {
   color: #f9fafb;
 }
 
