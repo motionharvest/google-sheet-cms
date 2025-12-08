@@ -48,7 +48,6 @@ export default async function PlaybillPage({ params }) {
       />
       <main style={{ padding: '2.5rem 1.5rem', maxWidth: '80rem', margin: '0 auto' }}>
         <header style={{ marginBottom: '2rem' }}>
-           <h2 style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{sectionTitle}</h2>
           {playbill.config?.description && (
             <p style={{ color: '#4b5563', maxWidth: '48rem' }}>{playbill.config.description}</p>
           )}
