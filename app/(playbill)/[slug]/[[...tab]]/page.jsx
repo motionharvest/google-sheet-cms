@@ -6,6 +6,21 @@ import { unslugify } from '@/lib/slugify.js';
 
 export const revalidate = 60;
 
+export async function generateMetadata({ params }) {
+  const playbillSlug = params.slug;
+  const playbill = await fetchPlaybill(playbillSlug);
+
+  if (!playbill) {
+    return {
+      title: 'Playbill Not Found',
+    };
+  }
+
+  return {
+    title: `${playbill.name} — Youth Festival Playbill`,
+  };
+}
+
 export default async function PlaybillPage({ params }) {
   const playbillSlug = params.slug;
   const tabParam = Array.isArray(params.tab) ? params.tab[0] ?? null : params.tab ?? null;
